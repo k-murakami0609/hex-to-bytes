@@ -1,1 +1,46 @@
-test
+<p>
+    <input type="text" id="hex">
+</p>
+
+<p>
+    <input type="text" id="hex1"> ~
+    <input type="text" id="hex2">
+</p>
+<p>
+    <button type="submit" onclick="submit()">
+        <big>submit</big>
+    </button>
+    <button type="reset" onclick="reset()">
+        <big>reset</big>
+    </button>
+</p>
+
+<script>
+
+    const submit = function () {
+        const hex = document.getElementById("hex").value;
+        const hex1 = document.getElementById("hex1").value;
+        const hex2 = document.getElementById("hex2").value;
+
+        let result = 0;
+        if (!hex) {
+            result = parseInt((hex2 - hex1).toString(), 10);
+        } else {
+            result = parseInt(hex, 16);
+        }
+
+        console.log(`-------------------------`);
+        console.log(`${result} bytes`);
+        console.log(`${result / 1024} Kbytes`);
+        console.log(`${result / 1024 / 1024} Mbytes`);
+        console.log(`${result / 1024 / 1024 / 1024} Gbytes`);
+        console.log(`-------------------------`);
+    }
+
+    const reset = function () {
+        document.getElementById("hex").value = "";
+        document.getElementById("hex1").value = "";
+        document.getElementById("hex2").value = "";
+    }
+
+</script>
